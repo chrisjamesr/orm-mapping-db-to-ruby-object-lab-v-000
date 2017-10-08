@@ -77,7 +77,7 @@ class Student
     SQL
 
     students_list = DB[:conn].execute(sql)
-    students_list.collect{|row| Student.new_from_db(row)}
+    Student.new_from_db(students_list[0])
   end
 
   def save
