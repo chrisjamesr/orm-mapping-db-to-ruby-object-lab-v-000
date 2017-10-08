@@ -10,13 +10,7 @@ class Student
 
   def self.new_from_db(row)
     # create a new Student object given a row from the database
-    sql = <<-SQL
-      SELECT * from students
-      WHERE id = ?
-      SQL
-
-    student = DB[:conn].execute(sql, row)
-    Student.new(student[0][0], student[0][1], student[0][2])
+  
 
   end
 
@@ -30,6 +24,15 @@ class Student
     # return a new instance of the Student class
   end
 
+  def undecided(row)
+    # sql = <<-SQL
+    #   SELECT * from students
+    #   WHERE id = ?
+    #   SQL
+    # 
+    # student = DB[:conn].execute(sql, row)
+    # Student.new(student[0][0], student[0][1], student[0][2])
+  end
   def save
     sql = <<-SQL
       INSERT INTO students (name, grade)
