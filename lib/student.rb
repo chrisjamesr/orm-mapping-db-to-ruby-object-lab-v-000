@@ -48,6 +48,16 @@ class Student
     students_list.collect{|row| Student.new_from_db(row)}
   end
 
+  def self.students_below_12th_grade
+    sql = <<-SQL
+      SELECT * FROM students
+      WHERE grade < 12
+    SQL
+
+    students_list = DB[:conn].execute(sql)
+    students_list.collect{|row| Student.new_from_db(row)}
+  end
+
   def save
     sql = <<-SQL
       INSERT INTO students (name, grade)
