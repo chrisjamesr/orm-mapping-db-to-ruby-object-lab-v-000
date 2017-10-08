@@ -3,6 +3,14 @@ class Student
 
   def self.new_from_db(row)
     # create a new Student object given a row from the database
+    sql = <<-SQL
+      SELECT * from students 
+      WHERE id = (?)
+      SQL
+
+    student = DB[:conn].execute(sql, row)    
+    binding.pry
+      
   end
 
   def self.all
