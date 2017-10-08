@@ -21,7 +21,7 @@ class Student
     SQL
 
     info = DB[:conn].execute(sql)
-    info.each do |row|
+    info.map do |row|
       Student.new_from_db(row)
     end
   end
