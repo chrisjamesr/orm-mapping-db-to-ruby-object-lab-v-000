@@ -14,7 +14,7 @@ class Student
       SELECT * from students
       WHERE id = ?
       SQL
-      
+
     student = DB[:conn].execute(sql, row)
     Student.new(student[0], student[1], student[2]).inspect
 
