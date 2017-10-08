@@ -58,6 +58,17 @@ class Student
     students_list.collect{|row| Student.new_from_db(row)}
   end
 
+  def self.first_X_students_in_grade_10(x)
+    sql = <<-SQL
+      SELECT * FROM students
+      WHERE grade = 10
+      LIMIT (?)
+    SQL
+
+    students_list = DB[:conn].execute(sql, x)
+    students_list.collect{|row| Student.new_from_db(row)}
+  end    
+
   def save
     sql = <<-SQL
       INSERT INTO students (name, grade)
