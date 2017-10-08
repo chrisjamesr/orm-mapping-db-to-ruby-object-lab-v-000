@@ -10,8 +10,7 @@ class Student
 
   def self.new_from_db(row)
     # create a new Student object given a row from the database
-  
-
+    Student.new(row[0], row[1], row[2])
   end
 
   def self.all
@@ -29,7 +28,7 @@ class Student
     #   SELECT * from students
     #   WHERE id = ?
     #   SQL
-    # 
+    #
     # student = DB[:conn].execute(sql, row)
     # Student.new(student[0][0], student[0][1], student[0][2])
   end
