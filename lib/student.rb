@@ -8,8 +8,8 @@ class Student
       WHERE id = (?)
       SQL
 
-    student = DB[:conn].execute(sql, row)
-    binding.pry
+    raise DB[:conn].execute(sql, row).inspect
+    
 
   end
 
