@@ -16,7 +16,6 @@ class Student
       SQL
 
     student = DB[:conn].execute(sql, row)
-    binding.pry
     Student.new(student[0], student[1], student[2])
 
   end
