@@ -16,7 +16,7 @@ class Student
       SQL
 
     student = DB[:conn].execute(sql, row)
-    Student.new(student[0], student[1], student[2]).inspect
+    Student.new(student[0][0], student[0][1], student[0][2])
 
   end
 
