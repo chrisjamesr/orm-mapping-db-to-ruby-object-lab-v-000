@@ -6,7 +6,7 @@ class Student
     @name = name
     @grade = grade
   end
-  
+
   def self.new_from_db(row)
     # create a new Student object given a row from the database
     sql = <<-SQL
@@ -15,7 +15,7 @@ class Student
       SQL
 
     student = DB[:conn].execute(sql, row)
-    Student.new.
+    Student.new(student[0], student[1], student[2])
 
   end
 
