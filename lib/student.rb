@@ -12,7 +12,7 @@ class Student
     # create a new Student object given a row from the database
     sql = <<-SQL
       SELECT * from students
-      WHERE id = (?)
+      WHERE id = ?
       SQL
 
     student = DB[:conn].execute(sql, row)
