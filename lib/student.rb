@@ -13,10 +13,7 @@ class Student
       WHERE id = (?)
       SQL
 
-  DB[:conn].execute(sql, row)
-
-
-
+    DB[:conn].execute(sql, row)
 
   end
 
