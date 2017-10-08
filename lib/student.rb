@@ -9,7 +9,7 @@ class Student
       SQL
 
     raise DB[:conn].execute(sql, row).inspect
-    
+
 
   end
 
