@@ -21,17 +21,15 @@ class Student
   def self.find_by_name(name)
     # find the student in the database given a name
     # return a new instance of the Student class
+    sql = <<-SQL
+      SELECT * from students
+      WHERE name = ?
+      SQL
+    
+    row = DB[:conn].execute(sql, name)[0]
+    Student.new_from_db(row)
   end
 
-  def undecided(row)
-    # sql = <<-SQL
-    #   SELECT * from students
-    #   WHERE id = ?
-    #   SQL
-    #
-    # student = DB[:conn].execute(sql, row)
-    # Student.new(student[0][0], student[0][1], student[0][2])
-  end
   def save
     sql = <<-SQL
       INSERT INTO students (name, grade)
