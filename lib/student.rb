@@ -89,7 +89,7 @@ class Student
     students_list = DB[:conn].execute(sql, x)
     students_list.collect{|row| Student.new_from_db(row)}
   end
-  
+
   def save
     sql = <<-SQL
       INSERT INTO students (name, grade)
